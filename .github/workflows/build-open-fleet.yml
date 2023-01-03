@@ -28,13 +28,13 @@ jobs:
           if grep -q "-rockpi" <<<"$repo"; then
             echo "Not RasPi 3"
             RASPI3="NO"
-          elif grep -q outdoor <<<"$repo"; then
+          elif grep -q "outdoor" <<<"$repo"; then
             echo "RasPi Outdoor"
             RASPI3="YES"
-          elif grep -q indoor <<<"$repo"; then
+          elif grep -q "indoor" <<<"$repo"; then
             echo "RasPi Indoor"
             RASPI3="YES"
-          elif grep -q risinghf <<<"$repo"; then
+          elif grep -q "risinghf" <<<"$repo"; then
             echo "RisingHF"
             RASPI3="YES"
           else
@@ -42,7 +42,7 @@ jobs:
             RASPI3="NO"
           fi
 
-          echo "RASPI=$RASPI" >> $GITHUB_ENV
+          echo "RASPI3=$RASPI3" >> $GITHUB_ENV
 
       - name: Install latest balena-cli (raspi 3)
         if: env.RASPI3 == 'YES'
