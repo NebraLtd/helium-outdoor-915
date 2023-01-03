@@ -23,7 +23,7 @@ jobs:
 
       - name: Determine if Raspberry Pi 3
         run: |
-          repo="${ github.event.repository.name }"
+          repo="${{ github.event.repository.name }}"
 
           if grep -q "-rockpi" <<<"$repo"; then
             echo "Not RasPi 3"
